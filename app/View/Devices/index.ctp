@@ -1,3 +1,4 @@
+<!-- File: /app/View/Devices/index.ctp -->
 <h1>Devices List</h1>
 <table>
     <tr>
@@ -10,12 +11,12 @@
 
     <?php foreach ($devices as $device): ?>
     <tr>
-        <td><?php echo $device['name']['id']; ?></td>
+        <td><?php echo $device['Device']['id']; ?></td>
         <td>
-            <?php echo $this->Html->link($device['name']['id'],
-            array('controller' => 'posts', 'action' => 'view', $device['name']['id'])); ?>
+            <?php echo $this->Html->link($device['Device']['name'],
+            array('controller' => 'devices', 'action' => 'view', $device['Device']['id'])); ?>
         </td>
-        <td><?php echo $device['name']['created']; ?></td>
+        <td><?php echo $device['Device']['created']; ?></td>
     </tr>
     <?php endforeach; ?>
     <?php unset($device); ?>
