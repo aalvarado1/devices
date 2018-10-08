@@ -21,3 +21,8 @@
     <?php endforeach; ?>
     <?php unset($device); ?>
 </table>
+
+<?php echo $this->Html->link(
+    'Add New Device',
+    array('controller' => 'devices', 'action' => 'add')
+); ?>
