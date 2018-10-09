@@ -1,13 +1,16 @@
 <!-- File: /app/View/Devices/index.ctp -->
-<h1>Devices List</h1>
+<h1>Select Devices</h1>
+<div>
+    <!-- Here is where we loop through our devices array -->
+    <?php forearch ($devices as $device): ?>
+        <input name=($device['Device']['name']) id=($device['Device']['id']) required="" type="checkbox">
+    <?php endforearch; ?>
+    <?php unset($device); ?>
+</div>
 <table>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Created</th>
-    </tr>
 
-    <!-- Here is where we loop through our $posts array, printing out post info -->
+
+
 
     <div>
         $options = $devices
@@ -15,10 +18,9 @@
     </div>
     <?php foreach ($devices as $device): ?>
     <tr>
-            <div>
-                <input name=($device['Device']['name']) id=($device['Device']['id']) required="" type="checkbox">
-            </div>
+
         <td>
+            <?php echo $this->Html->checkbox($device['Device']['name']
             <?php echo $this->Html->link($device['Device']['name'],
             array('controller' => 'devices', 'action' => 'view', $device['Device']['id'])); ?>
         </td>
@@ -29,6 +31,6 @@
 </table>
 
 <?php echo $this->Html->link(
-    'Add New Device',
+    'Save',
     array('controller' => 'devices', 'action' => 'add')
 ); ?>
