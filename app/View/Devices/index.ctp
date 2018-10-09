@@ -15,7 +15,7 @@
 </div>
 
 <h1>Radio button test</h1>
-<?php echo $form->input(
+<?php echo $form->add(
     $device['Device']['name'],
     array(
         'type' => 'radio',
