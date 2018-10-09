@@ -7,27 +7,6 @@
     <?php endforearch; ?>
     <?php unset($device); ?>
 </div>
-<table>
-
-
-
-
-    <div>
-        $options = $devices
-        echo $form->input('Device.name', array('multiple' => 'checkbox', 'options' => $options, 'selected' => $selected));
-    </div>
-    <?php foreach ($devices as $device): ?>
-    <tr>
-
-        <td>
-            <?php echo $this->Html->link($device['Device']['name'],
-            array('controller' => 'devices', 'action' => 'view', $device['Device']['id'])); ?>
-        </td>
-        <td><?php echo $device['Device']['created']; ?></td>
-    </tr>
-    <?php endforeach; ?>
-    <?php unset($device); ?>
-</table>
 
 <?php echo $this->Html->link(
     'Save',
