@@ -9,6 +9,10 @@
 
     <!-- Here is where we loop through our $posts array, printing out post info -->
 
+    <div>
+        $options = $devices
+        echo $form->input('Device.name', array('multiple' => 'checkbox', 'options' => $options, 'selected' => $selected));
+    </div>
     <?php foreach ($devices as $device): ?>
     <tr>
             <div>
