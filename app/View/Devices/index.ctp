@@ -15,14 +15,15 @@
 </div>
 
 <h1>Radio button test</h1>
-<?php echo $form->input('field', array(
-'before' => '--before--',
-'after' => '--after--',
-'between' => '--between---',
-'separator' => '--separator--',
-'options' => array('1', '2'),
-'type' => 'radio'
-));?>
+<?php echo $form->input(
+    $device['Device']['name'],
+    array(
+        'type' => 'radio',
+        'id' => $device['Device']['id'],
+        'name' => $device['Device']['name'],
+        'options' => array(1,2,3),
+    )
+);?>
 
 
 <h1>Devices List- Old table</h1>
