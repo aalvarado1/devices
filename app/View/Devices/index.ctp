@@ -20,7 +20,6 @@
     <tr>
 
         <td>
-            <?php echo $this->Html->checkbox($device['Device']['name']
             <?php echo $this->Html->link($device['Device']['name'],
             array('controller' => 'devices', 'action' => 'view', $device['Device']['id'])); ?>
         </td>
