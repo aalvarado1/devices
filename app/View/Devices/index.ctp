@@ -11,11 +11,9 @@
 
     <?php foreach ($devices as $device): ?>
     <tr>
-        <td><?php echo $device['Device']['id']; ?>
             <div>
                 <input name=['Device']['name'] id=['Device']['id'] required="" type="checkbox">
             </div>
-        </td>
         <td>
             <?php echo $this->Html->link($device['Device']['name'],
             array('controller' => 'devices', 'action' => 'view', $device['Device']['id'])); ?>
