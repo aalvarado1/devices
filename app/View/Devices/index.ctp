@@ -2,7 +2,7 @@
 <h1>Select Devices</h1>
 <div>
     <!-- Here is where we loop through our devices array -->
-    <?php forearch ($devices as $device): ?>
+    <?php foreach ($devices as $device): ?>
         <input name=($device['Device']['name']) id=($device['Device']['id']) required="" type="checkbox">
     <?php endforearch; ?>
     <?php unset($device); ?>
