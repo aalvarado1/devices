@@ -3,12 +3,10 @@
 <div>
     <!-- Here is where we loop through our devices array -->
     <?php foreach ($devices as $device): ?>
-        <input name=($device['Device']['name']) id=($device['Device']['id']) required="" type="checkbox">
+        <!-- <input name=($device['Device']['name']) id=($device['Device']['id']) required="" type="checkbox"> -->
+    <?php echo $device['Device']['name']; ?>
     <?php endforearch; ?>
     <?php unset($device); ?>
 </div>
 
-<?php echo $this->Html->link(
-    'Save',
-    array('controller' => 'devices', 'action' => 'add')
-); ?>
+<!--<?php echo $this->Html->link('Save', array('controller' => 'devices', 'action' => 'add')); ?>-->
