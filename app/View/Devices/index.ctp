@@ -12,7 +12,7 @@
     <?php foreach ($devices as $device): ?>
     <tr>
             <div>
-                <input name=['Device']['name'] id=['Device']['id'] required="" type="checkbox">
+                <input name=($device['Device']['name']) id=($device['Device']['id']) required="" type="checkbox">
             </div>
         <td>
             <?php echo $this->Html->link($device['Device']['name'],
