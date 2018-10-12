@@ -1,52 +1,25 @@
 <!-- File: /app/View/Devices/index.ctp -->
+
 <h1>Select Devices</h1>
-<div>
-    <!-- Here is where we loop through our devices array -->
-    <?php foreach ($devices as $device): ?>
-    <div>
-        <ul>
-            <li>
-                <?php echo $device['Device']['name']; ?>
-            </li>
-        </ul>
-    </div>
-    <?php endforeach; ?>
-    <?php unset($device); ?>
-</div>
+<?php echo $this->Form->create('Device', array('url' => 'genFile'));
+foreach ($devices as $device):
+    echo $this->Form->checkbox($device['Device']['name'], array(
+        'value' => $device['Device']['id'])
+    );
+    echo $this->Form->label($device['Device']['name']);
+    //echo $this->Form->input('DeviceQuestion', array('question' => true));
+    //echo $device['Device']['name'];
+    foreach ($devicesQuestions as $deviceQuestion):
+        if($deviceQuestion['DeviceQuestion']['device_id'] ==$device['Device']['id']) {
+            //echo $deviceQuestion['DeviceQuestion']['question'];
+            echo $this->Form->input($deviceQuestion['DeviceQuestion']['question']);
+        }
+    endforeach;
+endforeach;
 
-<h1>Radio button test</h1>
-<?php echo $form->add(
-    $device['Device']['name'],
-    array(
-        'type' => 'radio',
-        'id' => $device['Device']['id'],
-        'name' => $device['Device']['name'],
-        'options' => array(1,2,3),
-    )
-);?>
+echo $this->Form->input('fileName');
+echo $this->Form->end('Save Device');
+//echo $this->Html->link('Gen File', array('controller' => 'devices', 'action' => 'genFile'));
 
 
-<h1>Devices List- Old table</h1>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Created</th>
-    </tr>
-
-    <!-- Here is where we loop through our $posts array, printing out post info -->
-
-    <?php foreach ($devices as $device): ?>
-    <tr>
-        <td><?php echo $device['Device']['id']; ?></td>
-        <td>
-            <?php echo $this->Html->link($device['Device']['name'],
-            array('controller' => 'devices', 'action' => 'view', $device['Device']['id'])); ?>
-        </td>
-        <td><?php echo $device['Device']['created']; ?></td>
-    </tr>
-    <?php endforeach; ?>
-    <?php unset($device); ?>
-</table>
-
-<?php echo $this->Html->link('Save', array('controller' => 'devices', 'action' => 'add')); ?>
+unset($device); ?>

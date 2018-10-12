@@ -8,9 +8,11 @@
 
 class DevicesController extends AppController {
     public $helpers = array('Html', 'Form');
+    public $deviceQuestions = array('DeviceQuestion');
 
     public function index() {
         $this->set('devices', $this->Device->find('all'));
+        $this->set('devicesQuestions', $this->Device->DeviceQuestion->find('all'));
     }
 
     public function add() {
@@ -22,5 +24,17 @@ class DevicesController extends AppController {
             }
             $this->Flash->error(__('Unable to save new device.'));
         }
+    }
+
+    public function genFile() {
+        //$this->set('foos', $this->request->data['Device']['How old is your mom, hey?']);
+        $this->set('foos', $this->request->data['Device']);
+
+        /*if ($this->request->is('post')) {
+            //$this->set('dataSet', $this->request->data);
+            $foos = $this->request->data('fileName');
+            //return $this->redirect(array('action' => 'genFile'));
+        }
+        return $foos;*/
     }
 }

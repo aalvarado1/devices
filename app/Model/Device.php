@@ -8,10 +8,19 @@
 
 class Device extends AppModel {
 
-    public $validate = array(
-        'name' => array(
-            'rule' => 'notBlank'
+    /*public $hasMany = array(
+        'DeviceQuestion' => array(
+            'className' => 'DeviceQuestion'
         )
-    );
+    );*/
+
+    public $hasMany = 'DeviceQuestion';
+
+    /*public function getQuestions($deviceId = null){
+        $questions = $this->find('question', array(
+            'conditions' => array('device_id' => $deviceId)
+        ));
+        return $questions;
+    }*/
 
 }
