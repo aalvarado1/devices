@@ -1,0 +1,21 @@
+Completing the Setup Program [ans]
+
+There are multiple [ans] console connections to individual switches in the stack, the initial setup dialog box appears at the console where you first pressEnter.
+Procedure
+
+Device 1
+--------------------------------------------------
+Step 1  "Enter Yes at these two prompts:
+
+        Would you like to enter the initial configuration dialog? [yes/no]: yes
+
+        At any point you may enter a question mark '?' for help.
+        Use ctrl-c to abort configuration dialog at any prompt.
+        Default settings are in square brackets '[]'.
+
+        Basic management setup configures only enough connectivity
+        for management of the system, extended setup will ask you
+        to configure each interface on the system.
+
+        Would you like to enter basic management setup? [yes/no]: [ans]
+        "

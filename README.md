@@ -8,6 +8,12 @@
 CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
 Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
 
+## Developer Notes
+[Install cakephp on CentOS](https://idroot.net/tutorials/how-to-install-cakephp-on-centos-7/) - A guide to cakephp and CentOS
+
+[Debug_kit](https://github.com/cakephp/debug_kit/tree/2.2) - Debug toolbar for cakephp app
+
+[Test Server](http://54.202.219.230/devices) - Test server for demo 
 
 ## Some Handy Links
 

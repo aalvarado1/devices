@@ -29,6 +29,7 @@ class DevicesController extends AppController {
     public function genFile() {
         //$this->set('foos', $this->request->data['Device']['How old is your mom, hey?']);
         $this->set('foos', $this->request->data['Device']);
+        $this->set('devices', $this->Device->find('all'));
 
         /*if ($this->request->is('post')) {
             //$this->set('dataSet', $this->request->data);
@@ -37,4 +38,32 @@ class DevicesController extends AppController {
         }
         return $foos;*/
     }
+
+    /*public function test() {
+        foreach ($devices as $device):
+            if($foos[$device['Device']['name']] > 0) {
+                //Grab file from folder
+                $orgFile = $device['Device']['file_path'];
+                $myfile = fopen($orgFile, "r") or die("Unable to find file!");
+                //Create a temp file for storage and buffer
+                $tempFileDir = $orgFile . ".temp";
+                $tempFile = fopen($tempFileDir, "w") or die("Unable to open file!");
+                //Go through file till the end
+                while(!feof($myfile)) {
+                    //Reading line
+                    $fileLine = fgets($myfile);
+                    if(strpos($fileLine, "[ans]")) {
+                        //Found a replace marker, replace and write
+                        $replaceTxt = str_replace("[ans]", "questionAns", $fileLine);
+                        fwrite($tempFile, $replaceTxt);
+                    }
+                    //write reg line to temp file
+                    fwrite($tempFile, $fileLine);
+                }
+                //done with file, close them.
+                fclose($myfile);
+                fclose($tempFile);
+            }
+        endforeach;
+    }*/
 }
