@@ -1,13 +1,10 @@
-Completing the Setup Program [ans]
-
-There are multiple [ans] console connections to individual switches in the stack, the initial setup dialog box appears at the console where you first pressEnter.
+Completing the Setup Program
+If your switches are stacked and there are multiple console connections to individual switches in the stack, the initial setup dialog box appears at the console where you first pressEnter.
 Procedure
 
-Device 1
---------------------------------------------------
-Step 1  "Enter Yes at these two prompts:
+Step 1  Enter Yes at these two prompts:
 
-        Would you like to enter the initial configuration dialog? [yes/no]: yes
+        Would you like to enter the initial configuration dialog? [yes/no]: [ans]
 
         At any point you may enter a question mark '?' for help.
         Use ctrl-c to abort configuration dialog at any prompt.
@@ -18,4 +15,99 @@ Step 1  "Enter Yes at these two prompts:
         to configure each interface on the system.
 
         Would you like to enter basic management setup? [yes/no]: [ans]
-        "
+
+Step 2  Enter a host name for the switch, and press Return.
+        On a command switch, the host name is limited to 28 characters; on a member switch the name is limited to 31 characters. Do not use -n, where n is a number, as the last character in a host name for any switch.
+
+        Enter host name [Switch]: [ans]
+
+Step 3  Enter an enable secret password, and press Return.
+        The password can be from 1 to 25 alphanumeric characters, can start with a number, is case sensitive, allows spaces, but ignores leading spaces. The secret password is encrypted, and the enable password is in plain text.
+
+        Enter enable secret: [ans]
+
+Step 4  Enter an enable password, and press Return.
+
+        Enter enable password: [ans]
+
+Step 5  Enter a virtual terminal (Telnet) password, and press Return.
+        The password can be from 1 to 25 alphanumeric characters, is case sensitive, allows spaces, but ignores leading spaces.
+
+        Enter virtual terminal password: [ans]
+
+Step 6  To configure the country code, enter yes and press Return.
+
+        Do you want to configure country code? [no]: [ans]
+
+Step 7  Enter the country code, and press Return.
+
+        Enter the country code[US]:[ans]
+
+Step 8  (Optional) Configure Simple Network Management Protocol (SNMP) by responding to the prompts. You can also configure SNMP later through the CLI, Device Manager, or the Network Assistant application. To configure SNMP later, enter no.
+
+        Configure SNMP Network Management? [no]: [ans]
+
+Step 9  Enter the interface name (physical interface or VLAN name) of the connection to the management network, and press Return. For this release, always use vlan1 as that interface.
+
+        Enter interface name used to connect to the
+        management network from the above interface summary: [ans]
+
+Step 10  Configure the interface by entering the switch IP address and subnet mask and pressing Return. The IP address and subnet masks shown are examples.
+
+         Configuring interface vlan1:
+         Configure IP on this interface? [yes]: [ans]
+         IP address for this interface: 10.4.120.106
+         Subnet mask for this interface [255.0.0.0]: 255.0.0.0
+
+Step 11  Enter Y to configure the switch as the cluster command switch. Enter N to configure it as a member switch or as a standalone switch.
+         If you enter N, the switch appears as a candidate switch in the Network Assistant GUI. You can configure the switch as a command switch later through the CLI, Device Manager, or the Network Assistant application. To configure it later, enter no.
+
+         Would you like to enable as a cluster command switch? [yes/no]: [ans]
+
+         You have now completed the initial configuration of the switch. This is an example of the configuration output that appears:
+
+         The following configuration command script was created:
+         hostname switch1
+         enable secret 5 $1$Ulq8$DlA/OiaEbl90WcBPd9cOn1
+         enable password enable_password
+         line vty 0 15
+         password terminal-password
+         no snmp-server
+         !
+         no ip routing
+
+         !
+         interface Vlan1
+         no shutdown
+         ip address 10.4.120.106 255.0.0.0
+         !
+         interface GigabitEthernet1/0/1
+         !
+         interface GigabitEthernet1/0/2
+
+         interface GigabitEthernet1/0/3
+         !
+         ...<output abbreviated>
+         !
+
+
+         interface GigabitEthernet1/0/23
+         !
+         end
+
+Step 12  From these choices that appear, make your selection and press Return.
+
+         [0] Go to the IOS command prompt without saving this config.
+
+         [1] Return back to the setup without saving this config.
+
+         [2] Save this configuration to nvram and exit.
+
+         Choose (2) to save the configuration to NVRAM to use it the next time the switch reboots.
+
+         Enter your selection [2]: [ans]
+
+
+
+
+

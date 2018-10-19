@@ -5,7 +5,7 @@
 echo '<pre>'; var_dump($foos); echo '</pre>';
 ?>
 
-<?php echo $this->Form->create('Device'); ?>
+<?php echo $this->Form->create('Device', array('url' => 'saveFile')); ?>
 
 <?php
     foreach ($devices as $device):
@@ -22,7 +22,8 @@ echo '<pre>'; var_dump($foos); echo '</pre>';
                 $fileLine = fgets($myfile);
                 if(strpos($fileLine, "[ans]")) {
                     //Found a replace marker, replace and write
-                    $replaceTxt = str_replace("[ans]", "questionAns", $fileLine);
+                    $answer = '<b>' . next($foos) . '</b>';
+                    $replaceTxt = str_replace("[ans]", $answer, $fileLine);
                     fwrite($tempFile, $replaceTxt);
                 } else {
                     //write reg line to temp file
@@ -42,6 +43,6 @@ echo '<pre>'; var_dump($foos); echo '</pre>';
         }
     endforeach;
 ?>
-<?php echo $this->Form->input('File Name'); ?>
+
 <?php echo $this->Form->end('Save File'); ?>
 

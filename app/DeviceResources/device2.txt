@@ -7,7 +7,7 @@ Device 2
 --------------------------------------------------
 Step 1  "Enter Yes at these two prompts:
 
-        Would you like to enter the initial configuration dialog? [yes/no]: yes
+        Would you like to enter the initial configuration dialog? [yes/no]: [ans]
 
         At any point you may enter a question mark '?' for help.
         Use ctrl-c to abort configuration dialog at any prompt.
@@ -17,5 +17,5 @@ Step 1  "Enter Yes at these two prompts:
         for management of the system, extended setup will ask you
         to configure each interface on the system.
 
-        Would you like to enter basic management setup? [yes/no]: ['ans1']
+        Would you like to enter basic management setup? [yes/no]: [ans] and [ans]
         "

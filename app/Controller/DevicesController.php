@@ -7,8 +7,11 @@
  */
 
 class DevicesController extends AppController {
-    public $helpers = array('Html', 'Form');
+
+    public $helpers = array('Html', 'Form', 'Scriptaculous');
     public $deviceQuestions = array('DeviceQuestion');
+    //var $uses = array('DeviceQuestion', 'FinishedDocument');
+    //public $finishedDocuments = array('FinishedDocument');
 
     public function index() {
         $this->set('devices', $this->Device->find('all'));
@@ -26,44 +29,22 @@ class DevicesController extends AppController {
         }
     }
 
-    public function genFile() {
-        //$this->set('foos', $this->request->data['Device']['How old is your mom, hey?']);
-        $this->set('foos', $this->request->data['Device']);
-        $this->set('devices', $this->Device->find('all'));
-
-        /*if ($this->request->is('post')) {
-            //$this->set('dataSet', $this->request->data);
-            $foos = $this->request->data('fileName');
-            //return $this->redirect(array('action' => 'genFile'));
+    public function saveFile() {
+        $this->loadModel('FinishedDocument');
+        if ($this->request->is('post')) {
+            //$this->set('finishedDocuments', $this->FinishedDocument->find('all'));
+            $this->FinishedDocument->create();
+            if ($this->FinishedDocument->save($this->request->data)) {
+                $this->Flash->success(__('You have saved the document generated.'));
+                return $this->redirect(array('action' => 'index'));
+            }
+            $this->Flash->error(__('Unable to save document.'));
         }
-        return $foos;*/
     }
 
-    /*public function test() {
-        foreach ($devices as $device):
-            if($foos[$device['Device']['name']] > 0) {
-                //Grab file from folder
-                $orgFile = $device['Device']['file_path'];
-                $myfile = fopen($orgFile, "r") or die("Unable to find file!");
-                //Create a temp file for storage and buffer
-                $tempFileDir = $orgFile . ".temp";
-                $tempFile = fopen($tempFileDir, "w") or die("Unable to open file!");
-                //Go through file till the end
-                while(!feof($myfile)) {
-                    //Reading line
-                    $fileLine = fgets($myfile);
-                    if(strpos($fileLine, "[ans]")) {
-                        //Found a replace marker, replace and write
-                        $replaceTxt = str_replace("[ans]", "questionAns", $fileLine);
-                        fwrite($tempFile, $replaceTxt);
-                    }
-                    //write reg line to temp file
-                    fwrite($tempFile, $fileLine);
-                }
-                //done with file, close them.
-                fclose($myfile);
-                fclose($tempFile);
-            }
-        endforeach;
-    }*/
+    public function genFile() {
+        $this->set('foos', $this->request->data['Device']);
+        $this->set('devices', $this->Device->find('all'));
+    }
+
 }
