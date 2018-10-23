@@ -8,19 +8,4 @@
 
 class DeviceQuestion extends AppModel {
 
-    /*public $belongsTo = array(
-        'Device' => array(
-            'className' => 'Device'
-        )
-    );*/
-
-    public $belongsTo = 'Device';
-
-    public function getQuestions($deviceId = null){
-        $questions = $this->find('all', array(
-            'conditions' => array('device_id' => $deviceId)
-        ));
-        return $questions;
-    }
-
 }
