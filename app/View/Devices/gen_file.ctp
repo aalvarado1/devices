@@ -1,13 +1,13 @@
 <!-- File: /app/View/Devices/gen_file.ctp -->
 
 <h1>Save Generated File</h1>
-<?php
+<!--<?php
 echo '<pre>'; var_dump($foos); echo '</pre>';
-?>
+?>-->
 
 <?php echo $this->Form->create('Device', array('url' => 'saveFile')); ?>
-
 <?php
+$deviceFiles = "";
     foreach ($devices as $device):
         if($foos[$device['Device']['name']] > 0) {
             //Grab file from folder
@@ -36,13 +36,19 @@ echo '<pre>'; var_dump($foos); echo '</pre>';
             //Display temp file
             echo '<pre>';
             $displayFile = fopen($tempFileDir, "r") or die("Unable to find file!");
-            echo fread($displayFile, filesize($tempFileDir));
+            $fileToSave = fread($displayFile, filesize($tempFileDir));
+            echo $fileToSave;
+            $deviceFiles =  $deviceFiles . $fileToSave;
             echo '</pre>';
             //done with temp file, close it.
 
         }
     endforeach;
-?>
 
-<?php echo $this->Form->end('Save File'); ?>
+echo '<input type="hidden" name="document" value="' . $deviceFiles . '">';
+echo '<br>';
+echo '<label id="file_name_lb">File Name</label>';
+echo '<input type="text" name="document_name">';
+echo $this->Form->end('Save File');
+?>
 

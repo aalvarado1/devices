@@ -10,8 +10,7 @@ class DevicesController extends AppController {
 
     public $helpers = array('Html', 'Form', 'Scriptaculous');
     public $deviceQuestions = array('DeviceQuestion');
-    //var $uses = array('DeviceQuestion', 'FinishedDocument');
-    //public $finishedDocuments = array('FinishedDocument');
+
 
     public function index() {
         $this->set('devices', $this->Device->find('all'));
@@ -31,15 +30,28 @@ class DevicesController extends AppController {
 
     public function saveFile() {
         $this->loadModel('FinishedDocument');
-        if ($this->request->is('post')) {
+        $this->set('fileDocs', $this->request->data);
+        $fileDataToSave = $this->request->data;
+        //$this->FinishedDocument->create();
+        /*$this->FinishedDocument->set(array(
+            'document_name', 'somename'
+        ));*/
+        $this->FinishedDocument->save($this->request->data);
+        /*if ($this->request->is('post')) {
+            $this->set('fileDocs', $this->request->data['Device']);
             //$this->set('finishedDocuments', $this->FinishedDocument->find('all'));
             $this->FinishedDocument->create();
-            if ($this->FinishedDocument->save($this->request->data)) {
+
+            $fileDataToSave = $this->request->data['Device'];
+            print $fileDataToSave;
+            //$this->set('fileDataToSave', $this->request->data['Device']);
+            //$this->FinishedDocument->set();
+            if ($this->FinishedDocument->save('somename', 'blobs')) {
                 $this->Flash->success(__('You have saved the document generated.'));
                 return $this->redirect(array('action' => 'index'));
             }
             $this->Flash->error(__('Unable to save document.'));
-        }
+        }*/
     }
 
     public function genFile() {

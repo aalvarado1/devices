@@ -1,5 +1,6 @@
-HI
-
+<?php
+echo '<pre>'; var_dump($fileDocs); echo '</pre>';
+?>
 <h1>Add New Device</h1>
 <?php
         echo $this->Form->create('Post');
