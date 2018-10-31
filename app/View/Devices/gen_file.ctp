@@ -44,8 +44,10 @@ $deviceFiles = "";
 
         }
     endforeach;
-
+$answerList = implode(" ",$foos);
+//$answerList = json_encode($foos);
 echo '<input type="hidden" name="document" value="' . $deviceFiles . '">';
+echo '<input type="hidden" name="answer_list" value="' . $answerList . '">';
 echo '<br>';
 echo '<label id="file_name_lb">File Name</label>';
 echo '<input type="text" name="document_name">';
