@@ -27,4 +27,4 @@ endforeach;
 
 echo $this->Form->end('Generate File');
 ?>
-<a href="/devices/finisheddocuments/">View Saved Documents</a>
+<a href="/FinishedDocuments/">View Saved Documents</a>
