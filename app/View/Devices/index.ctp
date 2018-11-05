@@ -3,7 +3,7 @@
 <?php echo $this->Html->script('scriptaculous.js', array('inline' => false)); ?>
 <?php echo $this->Html->script('helper.js', array('inline' => false)); ?>
 
-<h1>Select Devices</h1>
+<h3>Select Devices</h3>
 <?php echo $this->Form->create('Device', array('url' => 'genFile'));
 foreach ($devices as $device):
     $deviceDivId = $device['Device']['name'] . "-squish";
@@ -27,3 +27,4 @@ endforeach;
 
 echo $this->Form->end('Generate File');
 ?>
+<a href="/devices/finisheddocuments/">View Saved Documents</a>
