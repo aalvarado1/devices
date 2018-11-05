@@ -10,7 +10,7 @@
     <tr>
         <td>
             <?php echo $this->Html->link($finishedDoc['FinishedDocument']['document_name'],
-            array('controller' => 'finisheddocuments', 'action' => 'view', $finishedDoc['FinishedDocument']['id'])); ?>
+            array('controller' => 'FinishedDocuments', 'action' => 'view', $finishedDoc['FinishedDocument']['id'])); ?>
         </td>
         <td><?php echo $finishedDoc['FinishedDocument']['document_name']; ?></td>
         <td><?php echo $finishedDoc['FinishedDocument']['created']; ?></td>
@@ -18,4 +18,4 @@
     <?php endforeach; ?>
     <?php unset($finishedDocs); ?>
 </table>
-<a href="/devices/devices/">Generate New Document</a>
+<a href="/devices/">Generate New Document</a>

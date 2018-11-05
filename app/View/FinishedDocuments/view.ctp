@@ -4,7 +4,7 @@
     <?php echo $finishedDoc['FinishedDocument']['document']; ?>
 </pre>
 <br>
-<a href="/devices/devices/">Generate New Document</a> <br><br>
+<a href="/devices/">Generate New Document</a> <br><br>
 <?php echo $this->Html->css(['mycss'],['media' => 'print']); ?>
 <!--
 <a href="/devices/devices/">Print Document</a>-->
